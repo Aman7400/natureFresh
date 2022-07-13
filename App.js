@@ -1,11 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native'
+import React from 'react'
+import GetStarted from './src/views/GetStarted/GetStarted'
+
+const image = require('./assets/images/get-started.jpeg') 
+
 import { useFonts, BubblerOne_400Regular } from '@expo-google-fonts/bubbler-one';
 import {Ubuntu_700Bold_Italic } from "@expo-google-fonts/ubuntu"
-import { colors } from './src/constants/colors';
-import { sizes } from './src/constants/fonts';
+import { StatusBar } from 'expo-status-bar';
 
-export default function App() {
+const App = () => {
 
   let [fontsLoaded] = useFonts({
     BubblerOne_400Regular,
@@ -21,20 +24,11 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={{ color: colors.primaryExtraDark,fontFamily: 'BubblerOne_400Regular',fontSize:sizes.heading}}>Welcome to Nature Fresh 🍎</Text>
-      <Text style={{ color:colors.primaryDark,fontFamily: 'Ubuntu_700Bold_Italic',fontSize:sizes.body}}>Welcome to Nature Fresh 🍎</Text>
-      <Text style={{ color:colors.primary,fontFamily: 'Ubuntu_700Bold_Italic',fontSize:sizes.links}}>Welcome to Nature Fresh 🍎</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+<>
+<GetStarted/>
+<StatusBar style="light" />
+</>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
